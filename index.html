@@ -825,7 +825,7 @@
     function loadSamplePayload(type) {
       const inputElem = document.getElementById('raw-payload-input');
       if (type === 'xss') {
-        inputElem.value = "<script>alert('XSS_ATTACK_DETECTED');</script>";
+        inputElem.value = "<script>alert('XSS_ATTACK_DETECTED');<\/script>";
       } else if (type === 'sqli') {
         inputElem.value = "admin' OR '1'='1' -- ";
       } else if (type === 'img') {
