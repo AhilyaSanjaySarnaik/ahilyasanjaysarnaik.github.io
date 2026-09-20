@@ -782,7 +782,7 @@
       // Sanitization steps
       let cleanOutput = rawInput;
 
-      // 1. Script Tag Check - Fixed regex pattern token syntax
+      // 1. Script Tag Check
       if (/<script\b[^>]*>([\s\S]*?)<\/script>/gi.test(cleanOutput)) {
         isThreat = true;
         analysis.push('<div class="text-cyber-neon">✓ XSS Script tag detected and rendered harmless using entity encoding.</div>');
