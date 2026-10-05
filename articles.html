@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark">
+<title>Articles | Ahilya Sarnaik</title>
+<meta name="description" content="Articles by Ahilya Sarnaik on AI agent security, reconnaissance, secure coding and third-party risk.">
+<meta property="og:title" content="Articles | Ahilya Sarnaik">
+<meta property="og:description" content="Articles by Ahilya Sarnaik on AI agent security, reconnaissance, secure coding and third-party risk.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<style>
+.filters{display:flex;flex-wrap:wrap;gap:.5rem;margin:1.5rem 0 0}
+.filters button{font:500 .85rem var(--sans);color:var(--muted);background:var(--bg2);border:1px solid var(--rule);border-radius:999px;padding:.45rem .95rem;cursor:pointer}
+.filters button[aria-pressed="true"]{color:var(--bg);background:var(--safe);border-color:var(--safe)}
+.alist{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+@media (max-width:860px){.alist{grid-template-columns:1fr}}
+.art{display:flex;flex-direction:column;background:var(--bg2);border:1px solid var(--rule);border-radius:12px;padding:1.3rem;transition:border-color .25s ease}
+.art:hover{border-color:var(--safe)}
+.art .meta{font:400 .78rem var(--mono);color:var(--dim);display:flex;gap:.8rem;flex-wrap:wrap}
+.art .meta .t{color:var(--safe)}
+.art .meta .t.v{color:var(--violet)} .art .meta .t.h{color:var(--hold)}
+.art h3{margin:.55rem 0 .4rem;font-size:1.1rem;line-height:1.3}
+.art h3 a{color:var(--ink);text-decoration:none}
+.art h3 a:hover{color:var(--safe)}
+.art p{margin:0 0 .9rem;color:var(--muted);font-size:.94rem}
+.art .links{margin-top:auto;display:flex;gap:1rem;flex-wrap:wrap;font:400 .8rem var(--mono)}
+.art .links a{color:var(--safe);text-decoration:none}
+.art .links a.rel{color:var(--sky)}
+.art.feature{grid-column:1/-1;border-color:var(--rule2);background:linear-gradient(135deg,var(--panel),var(--bg2))}
+.art.feature h3{font-size:1.35rem}
+.art[hidden]{display:none}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-code" viewBox="0 0 24 24"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5M14 4l-4 16"/></symbol>
+  <symbol id="i-brief" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2M3 13h18"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M5 17l-2 4 5-2h9a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7a3 3 0 0 0-3 3v7"/><path d="M8 10h8M8 13.5h5"/></symbol>
+  <symbol id="i-pen" viewBox="0 0 24 24"><path d="M4 20h4L19 9l-4-4L4 16v4z"/><path d="M13.5 6.5l4 4"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></symbol>
+  <symbol id="i-flag" viewBox="0 0 24 24"><path d="M5 21V4M5 4h11l-2 4 2 4H5"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-6-5.6-6-11a6 6 0 0 1 12 0c0 5.4-6 11-6 11z"/><circle cx="12" cy="10" r="2.2"/></symbol>
+  <symbol id="i-cap" viewBox="0 0 24 24"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c3 2 9 2 12 0v-5"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+</svg>
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="index.html"><svg class="mark" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="10" fill="#131F2B" stroke="#2E4052"/><path d="M20 7l10 4v7c0 7-4.5 12-10 14.5C14.5 30 10 25 10 18v-7z" fill="rgba(111,209,176,.12)" stroke="#6FD1B0" stroke-width="1.8"/><circle cx="20" cy="18" r="2.2" fill="#6FD1B0"/><path d="M20 20.5v4M16 16l-2.5-2M24 16l2.5-2" stroke="#6FD1B0" stroke-width="1.5" stroke-linecap="round"/></svg><span><b>Ahilya Sarnaik</b><span>ahilya@soc-lab:~</span></span></a>
+    <nav class="primary" id="nav" aria-label="Pages">
+      <a href="index.html">Home</a>
+      <a href="projects.html">Projects</a>
+      <a href="ai-lab.html">AI Lab</a>
+      <a href="articles.html" aria-current="page">Articles</a>
+      <a href="about.html">About</a>
+      <a href="#contact">Contact</a>
+      <a class="nav-cv" href="resume.pdf" target="_blank" rel="noopener">Download CV</a>
+    </nav>
+    <div class="hdr-cta">
+      <a class="btn ghost" href="index.html#services">Hire / Freelance</a>
+      <a class="btn solid" href="resume.pdf" target="_blank" rel="noopener">Download CV</a>
+    </div>
+    <button class="menu-btn" id="menuBtn" aria-controls="nav" aria-expanded="false" aria-label="Open menu"><svg class="i"><use href="#i-menu"/></svg></button>
+  </div>
+</header>
+<main id="top">
+  <section class="phero">
+    <div class="wrap">
+      <p class="path">~/articles</p>
+      <h1>Articles</h1>
+      <p class="lead">Write-ups on AI agent security, reconnaissance and third-party risk. Where an article describes something I built, it links to the case study and the code.</p>
+      <div class="filters" role="group" aria-label="Filter articles">
+        <button type="button" data-f="all" aria-pressed="true">All (10)</button>
+        <button type="button" data-f="ai" aria-pressed="false">AI and agent security</button>
+        <button type="button" data-f="recon" aria-pressed="false">Recon and offensive</button>
+        <button type="button" data-f="grc" aria-pressed="false">GRC and secure engineering</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" style="padding-top:1.5rem">
+    <div class="wrap">
+      <div class="alist" id="alist">
+        <article class="art feature" data-track="ai">
+          <div class="meta"><span class="t">AI agent security</span><span>21 Sep 2026</span></div>
+          <h3><a href="https://medium.com/@ahilya_Cyber/i-built-a-security-supervisor-for-ai-agents-heres-why-your-ai-chatbot-shouldn-t-have-20f5f993ee86" target="_blank" rel="noopener">I Built a Security Supervisor for AI Agents: Why Your Chatbot Shouldn&rsquo;t Have Unattended Write Access</a></h3>
+          <p>How I put authentication, attribute-based access control, an injection sanitizer and human approval in front of the official GitHub MCP server, and the four attacks it stops in live tests.</p>
+          <div class="links"><a href="https://medium.com/@ahilya_Cyber/i-built-a-security-supervisor-for-ai-agents-heres-why-your-ai-chatbot-shouldn-t-have-20f5f993ee86" target="_blank" rel="noopener">Read on Medium &rarr;</a><a class="rel" href="projects.html#supervisor">&#8627; SupervisorGuard AI case study</a></div>
+        </article>
+        <article class="art" data-track="ai">
+          <div class="meta"><span class="t">AI agent security</span><span>4 Oct 2026</span></div>
+          <h3><a href="https://medium.com/@ahilya_Cyber/building-medguard-agent-a-zero-trust-security-framework-for-clinical-ai-2c0dd0c1ca04" target="_blank" rel="noopener">Building MedGuard Agent: A Zero-Trust Security Framework for Clinical AI</a></h3>
+          <p>Why standard API security falls short once an agent can call clinical tools, and a gateway design using OPA policy, single-use capability tokens and PHI redaction.</p>
+          <div class="links"><a href="https://medium.com/@ahilya_Cyber/building-medguard-agent-a-zero-trust-security-framework-for-clinical-ai-2c0dd0c1ca04" target="_blank" rel="noopener">Read on Medium &rarr;</a><a class="rel" href="projects.html#medguard">&#8627; MedGuard case study</a></div>
+        </article>
+        <article class="art" data-track="ai">
+          <div class="meta"><span class="t">AI security</span><span>3 Oct 2026</span></div>
+          <h3><a href="https://medium.com/@ahilya_Cyber/the-open-internet-in-a-file-common-crawl-ai-training-and-the-security-blind-spot-we-keep-0a8ad11e2779" target="_blank" rel="noopener">The Open Internet in a File: Common Crawl, AI Training, and the Security Blind Spot</a></h3>
+          <p>What it means that large models learn from a raw crawl of the web, and the poisoning and leakage risks that come with treating that crawl as trusted input.</p>
+          <div class="links"><a href="https://medium.com/@ahilya_Cyber/the-open-internet-in-a-file-common-crawl-ai-training-and-the-security-blind-spot-we-keep-0a8ad11e2779" target="_blank" rel="noopener">Read on Medium &rarr;</a></div>
+        </article>
+        <article class="art" data-track="recon">
+          <div class="meta"><span class="t v">Recon and OSINT</span><span>26 May 2026</span></div>
+          <h3><a href="https://medium.com/@ahilya_Cyber/mastering-metagoofil-hunting-for-leaky-document-metadata-in-osint-reconnaissance-6c7dfe2b18ce" target="_blank" rel="noopener">Mastering Metagoofil: Hunting for Leaky Document Metadata in OSINT Reconnaissance</a></h3>
+          <p>Using public documents to surface usernames, software versions and internal paths during the passive phase of an authorised assessment, and how defenders can strip that metadata first.</p>
+          <div class="links"><a href="https://medium.com/@ahilya_Cyber/mastering-metagoofil-hunting-for-leaky-document-metadata-in-osint-reconnaissance-6c7dfe2b18ce" target="_blank" rel="noopener">Read on Medium &rarr;</a><a class="rel" href="projects.html#recon">&#8627; Recon platform case study</a></div>
+        </article>
+        <article class="art" data-track="recon">
+          <div class="meta"><span class="t v">Recon and OSINT</span><span>20 Apr 2026</span></div>
+          <h3><a href="https://medium.com/@ahilya_Cyber/why-nmap-fails-when-enumerating-websites-and-what-to-do-about-it-a20fc82a010b" target="_blank" rel="noopener">Why Nmap Fails When Enumerating Websites, and What to Do About It</a></h3>
+          <p>The CDN, WAF and virtual-host behaviours that quietly make port scans misleading against modern web targets, and the techniques that fill the gaps.</p>
+          <div class="links"><a href="https://medium.com/@ahilya_Cyber/why-nmap-fails-when-enumerating-websites-and-what-to-do-about-it-a20fc82a010b" target="_blank" rel="noopener">Read on Medium &rarr;</a><a class="rel" href="https://github.com/AhilyaSanjaySarnaik/Enumeration-cmd-tool" target="_blank" rel="noopener">&#8627; Enumeration CLI tool</a></div>
+        </article>
+        <article class="art" data-track="recon">
+          <div class="meta"><span class="t v">Malware analysis</span><span>18 May 2026</span></div>
+          <h3><a href="https://medium.com/@ahilya_Cyber/how-i-built-my-first-malware-testing-lab-from-scratch-4898abff81e9" target="_blank" rel="noopener">How I Built My First Malware Testing Lab from Scratch</a></h3>
+          <p>An isolated analysis environment built step by step, with the network isolation and snapshot decisions that keep live samples contained.</p>
+          <div class="links"><a href="https://medium.com/@ahilya_Cyber/how-i-built-my-first-malware-testing-lab-from-scratch-4898abff81e9" target="_blank" rel="noopener">Read on Medium &rarr;</a></div>
+        </article>
+        <article class="art" data-track="recon">
+          <div class="meta"><span class="t v">Linux fundamentals</span><span>12 Aug 2026</span></div>
+          <h3><a href="https://medium.com/@ahilya_Cyber/solving-overthewire-bandit-my-levels-0-11-walkthrough-91c8cb6320ce" target="_blank" rel="noopener">Solving OverTheWire Bandit: Levels 0&ndash;11 Walkthrough</a></h3>
+          <p>A walkthrough of the early Bandit levels, covering the permission, encoding and file-search techniques each one teaches.</p>
+          <div class="links"><a href="https://medium.com/@ahilya_Cyber/solving-overthewire-bandit-my-levels-0-11-walkthrough-91c8cb6320ce" target="_blank" rel="noopener">Read on Medium &rarr;</a><a class="rel" href="https://github.com/AhilyaSanjaySarnaik/Bandit-Levels-Solved" target="_blank" rel="noopener">&#8627; Bandit solutions repo</a></div>
+        </article>
+        <article class="art" data-track="grc">
+          <div class="meta"><span class="t h">Secure engineering</span><span>18 Aug 2026</span></div>
+          <h3><a href="https://medium.com/@ahilya_Cyber/your-code-works-but-is-it-secure-2a4ace299d78" target="_blank" rel="noopener">Your Code Works. But Is It Secure?</a></h3>
+          <p>Three small secure-coding habits, with examples, that close off a surprising share of common vulnerabilities before code reaches review.</p>
+          <div class="links"><a href="https://medium.com/@ahilya_Cyber/your-code-works-but-is-it-secure-2a4ace299d78" target="_blank" rel="noopener">Read on Medium &rarr;</a></div>
+        </article>
+        <article class="art" data-track="grc">
+          <div class="meta"><span class="t h">Third-party risk</span><span>4 Jun 2026</span></div>
+          <h3><a href="https://medium.com/@ahilya_Cyber/the-annual-vendor-audit-is-dead-here-is-whats-replacing-it-0bffdbbe7a2b" target="_blank" rel="noopener">The Annual Vendor Audit Is Dead. Here Is What&rsquo;s Replacing It.</a></h3>
+          <p>Why yearly questionnaires leave long blind spots in supplier risk, and what continuous, evidence-based vendor monitoring looks like in practice.</p>
+          <div class="links"><a href="https://medium.com/@ahilya_Cyber/the-annual-vendor-audit-is-dead-here-is-whats-replacing-it-0bffdbbe7a2b" target="_blank" rel="noopener">Read on Medium &rarr;</a></div>
+        </article>
+        <article class="art" data-track="grc">
+          <div class="meta"><span class="t h">ISO/IEC 27001</span><span>29 May 2026</span></div>
+          <h3><a href="https://medium.com/@ahilya_Cyber/why-your-vendor-risk-assessment-process-is-broken-and-how-iso-27001-can-fix-it-1ecc477f6519" target="_blank" rel="noopener">Why Your Vendor Risk Assessment Process Is Broken, and How ISO 27001 Can Fix It</a></h3>
+          <p>Moving supplier assessment from spreadsheet box-ticking to controls that map to Annex A and reflect the real attack surface a vendor adds.</p>
+          <div class="links"><a href="https://medium.com/@ahilya_Cyber/why-your-vendor-risk-assessment-process-is-broken-and-how-iso-27001-can-fix-it-1ecc477f6519" target="_blank" rel="noopener">Read on Medium &rarr;</a></div>
+        </article>
+      </div>
+      <p style="margin-top:2rem;color:var(--muted)">All articles are published on <a href="https://medium.com/@ahilya_Cyber" target="_blank" rel="noopener">medium.com/@ahilya_Cyber</a>.</p>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <div>
+        <h2>Let's talk</h2>
+        <p>Available for full-time SOC, cloud and AI security roles in Ireland, and select freelance security consulting engagements.</p>
+        <div class="row">
+          <a class="btn solid" href="mailto:ahilyasarnaik12@gmail.com"><svg class="i"><use href="#i-mail"/></svg>Email me</a>
+          <a class="btn" href="https://www.linkedin.com/in/ahilyacyber" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn" href="resume.pdf" target="_blank" rel="noopener">Download CV</a>
+        </div>
+      </div>
+      <div class="mailbox" aria-label="Contact details">
+        <div><span class="k">$</span> contact --list</div>
+        <div>email&nbsp;&nbsp;&nbsp;&nbsp;<a href="mailto:ahilyasarnaik12@gmail.com">ahilyasarnaik12@gmail.com</a></div>
+        <div>linkedin&nbsp;<a href="https://www.linkedin.com/in/ahilyacyber" target="_blank" rel="noopener">in/ahilyacyber</a></div>
+        <div>github&nbsp;&nbsp;&nbsp;<a href="https://github.com/AhilyaSanjaySarnaik" target="_blank" rel="noopener">AhilyaSanjaySarnaik</a></div>
+        <div>x&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://x.com/Ahi_Cyber" target="_blank" rel="noopener">@Ahi_Cyber</a></div>
+        <div>location Dublin, Ireland</div>
+        <div><span class="k">●</span> status&nbsp;&nbsp;&nbsp;open to work</div>
+      </div>
+    </div>
+  </section>
+</main>
+<footer><div class="wrap"><span>© 2026 Ahilya Sarnaik, Dublin</span><nav aria-label="Footer"><a href="index.html">Home</a><a href="projects.html">Projects</a><a href="ai-lab.html">AI Lab</a><a href="articles.html">Articles</a><a href="about.html">About</a></nav></div></footer>
+<script src="assets/js/main.js"></script>
+<script>
+(function(){
+  var btns=document.querySelectorAll('.filters button'),cards=document.querySelectorAll('#alist .art');
+  btns.forEach(function(b){b.addEventListener('click',function(){
+    var f=b.getAttribute('data-f');
+    btns.forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});
+    cards.forEach(function(c){c.hidden=!(f==='all'||c.getAttribute('data-track')===f)});
+  })});
+})();
+</script>
+
+</body>
+</html>
