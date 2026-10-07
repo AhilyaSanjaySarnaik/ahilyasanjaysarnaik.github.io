@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark">
+<title>Research | Ahilya Sarnaik</title>
+<meta name="description" content="Research by Ahilya Sarnaik: a peer-reviewed paper on AI violence detection, MSc research on federated intrusion detection, and Pykspa malware behaviour analysis.">
+<meta property="og:title" content="Research | Ahilya Sarnaik">
+<meta property="og:description" content="Research by Ahilya Sarnaik: a peer-reviewed paper on AI violence detection, MSc research on federated intrusion detection, and Pykspa malware behaviour analysis.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<style>
+.rstats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.8rem;margin:2rem 0 0;max-width:760px;list-style:none;padding:0}
+.rstats li{background:var(--bg2);border:1px solid var(--rule);border-radius:12px;padding:.9rem 1rem}
+.rstats b{display:block;font-size:1.9rem;line-height:1;color:var(--safe);letter-spacing:-.03em;font-family:var(--mono);font-weight:500}
+.rstats span{display:block;margin-top:.35rem;font-size:.86rem;color:var(--muted)}
+@media (max-width:560px){.rstats{grid-template-columns:1fr}}
+
+.rtl{list-style:none;margin:0 0 3rem;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;position:relative}
+.rtl::before{content:"";position:absolute;left:0;right:0;top:9px;height:1px;background:linear-gradient(90deg,var(--sky),var(--stop),var(--violet))}
+.rtl li{position:relative;padding-top:1.7rem}
+.rtl li::before{content:"";position:absolute;top:3px;left:0;width:13px;height:13px;border-radius:50%;background:var(--bg);border:2px solid var(--c,var(--safe))}
+.rtl .when{font:400 .76rem var(--mono);color:var(--c,var(--safe))}
+.rtl a{display:block;text-decoration:none;font-weight:600;line-height:1.3;margin:.25rem 0}
+.rtl p{margin:0;font-size:.86rem;color:var(--muted)}
+@media (max-width:760px){
+  .rtl{grid-template-columns:1fr;gap:1.3rem;padding-left:1.6rem}
+  .rtl::before{left:6px;right:auto;top:6px;bottom:6px;width:1px;height:auto;background:linear-gradient(180deg,var(--sky),var(--stop),var(--violet))}
+  .rtl li{padding-top:0}
+  .rtl li::before{left:-1.6rem;top:4px}
+}
+
+.case.featured{border-color:var(--rule2);background:linear-gradient(140deg,var(--panel),var(--bg2) 60%);position:relative;overflow:hidden}
+.case.featured::after{content:"";position:absolute;right:-90px;top:-90px;width:240px;height:240px;border-radius:50%;background:var(--violet-soft);filter:blur(30px);pointer-events:none}
+.badge{display:inline-flex;align-items:center;gap:.4rem;font:500 .7rem var(--mono);letter-spacing:.06em;text-transform:uppercase;border-radius:999px;padding:.22rem .65rem;margin:0 0 .7rem;border:1px solid}
+.badge.pub{color:var(--sky);border-color:var(--sky);background:var(--sky-soft)}
+.badge.msc{color:var(--violet);border-color:var(--violet);background:var(--violet-soft)}
+.badge.mal{color:var(--stop);border-color:var(--stop);background:var(--stop-soft)}
+.btns{display:flex;flex-wrap:wrap;gap:.5rem}
+.facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.7rem;margin:0 0 1.2rem}
+@media (max-width:760px){.facts{grid-template-columns:1fr}}
+.fact{background:var(--panel);border:1px solid var(--rule);border-radius:10px;padding:.8rem .9rem}
+.fact h4{margin:0 0 .5rem;font:400 .74rem var(--mono);color:var(--dim);text-transform:uppercase;letter-spacing:.06em}
+.fact .tags li{font-family:var(--mono);font-size:.74rem}
+.cite{font:400 .8rem var(--mono);color:var(--muted);background:var(--bg);border:1px solid var(--rule);border-radius:8px;padding:.8rem .95rem;margin:0 0 1.2rem;line-height:1.6;overflow-wrap:anywhere}
+.cite b{color:var(--ink);font-weight:500}
+.cite a{color:var(--sky)}
+.case .sub2{font:400 .78rem var(--mono);color:var(--dim);margin:0 0 .35rem}
+.cover{display:flex;flex-wrap:wrap;gap:.35rem;list-style:none;margin:0 0 1.2rem;padding:0}
+.cover li{font-size:.8rem;color:var(--ink);background:var(--panel);border:1px solid var(--rule2);border-radius:6px;padding:.2em .6em}
+.split{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+@media (max-width:860px){.split{grid-template-columns:1fr}}
+.vs{background:var(--bg2);border:1px solid var(--rule);border-radius:14px;padding:1.3rem}
+.vs h3{margin:0 0 .4rem;font-size:1.1rem}
+.vs p{margin:0 0 .8rem;color:var(--muted);font-size:.95rem}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-code" viewBox="0 0 24 24"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5M14 4l-4 16"/></symbol>
+  <symbol id="i-brief" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2M3 13h18"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M5 17l-2 4 5-2h9a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7a3 3 0 0 0-3 3v7"/><path d="M8 10h8M8 13.5h5"/></symbol>
+  <symbol id="i-pen" viewBox="0 0 24 24"><path d="M4 20h4L19 9l-4-4L4 16v4z"/><path d="M13.5 6.5l4 4"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></symbol>
+  <symbol id="i-flag" viewBox="0 0 24 24"><path d="M5 21V4M5 4h11l-2 4 2 4H5"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-6-5.6-6-11a6 6 0 0 1 12 0c0 5.4-6 11-6 11z"/><circle cx="12" cy="10" r="2.2"/></symbol>
+  <symbol id="i-cap" viewBox="0 0 24 24"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c3 2 9 2 12 0v-5"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+</svg>
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="index.html"><svg class="mark" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="10" fill="#131F2B" stroke="#2E4052"/><path d="M20 7l10 4v7c0 7-4.5 12-10 14.5C14.5 30 10 25 10 18v-7z" fill="rgba(111,209,176,.12)" stroke="#6FD1B0" stroke-width="1.8"/><circle cx="20" cy="18" r="2.2" fill="#6FD1B0"/><path d="M20 20.5v4M16 16l-2.5-2M24 16l2.5-2" stroke="#6FD1B0" stroke-width="1.5" stroke-linecap="round"/></svg><span><b>Ahilya Sarnaik</b><span>ahilya@soc-lab:~</span></span></a>
+    <nav class="primary" id="nav" aria-label="Pages">
+      <a href="index.html">Home</a>
+      <a href="projects.html">Projects</a>
+      <a href="ai-lab.html">AI Lab</a>
+      <a href="research.html" aria-current="page">Research</a>
+      <a href="articles.html">Articles</a>
+      <a href="about.html">About</a>
+      <a href="#contact">Contact</a>
+      <a class="nav-cv" href="resume.pdf" target="_blank" rel="noopener">Download CV</a>
+    </nav>
+    <div class="hdr-cta">
+      <a class="btn ghost" href="index.html#services">Hire / Freelance</a>
+      <a class="btn solid" href="resume.pdf" target="_blank" rel="noopener">Download CV</a>
+    </div>
+    <button class="menu-btn" id="menuBtn" aria-controls="nav" aria-expanded="false" aria-label="Open menu"><svg class="i"><use href="#i-menu"/></svg></button>
+  </div>
+</header>
+<main id="top">
+  <section class="phero">
+    <div class="wrap">
+      <p class="path">~/research</p>
+      <h1>Research</h1>
+      <p class="lead">Security research at the intersection of AI, machine learning and cyber defence: from computer vision for threat detection, to malware behaviour analysis, to privacy-preserving intrusion detection.</p>
+      <ul class="rstats" aria-label="Research at a glance">
+        <li><b>03</b><span>research projects</span></li>
+        <li><b>01</b><span>peer-reviewed publication, first author</span></li>
+        <li><b>03</b><span>domains: computer vision, malware, federated ML</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="block" style="padding-top:1.5rem">
+    <div class="wrap">
+      <div class="head"><p class="path">~/research --timeline</p><h2>How the work fits together</h2><p>Each project moved a step closer to where I work now: securing AI systems and using ML for defence.</p></div>
+      <ol class="rtl">
+        <li style="--c:var(--sky)"><span class="when">May 2025 · published</span><a href="#violence">Intelligent violence detection</a><p>AI, computer vision, threat detection</p></li>
+        <li style="--c:var(--stop)"><span class="when">2026 · malware analysis</span><a href="#pykspa">Pykspa trojan behaviour analysis</a><p>DGA, command and control, network forensics</p></li>
+        <li style="--c:var(--violet)"><span class="when">2026 · MSc research</span><a href="#federated">Adaptive gated aggregation</a><p>Federated learning, NIDS, anomaly detection</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="block" style="padding-top:0">
+    <div class="wrap">
+
+      <article class="case featured" id="federated">
+        <span class="badge msc">🧠 MSc research · featured</span>
+        <div class="case-head"><div><p class="sub2">MSc Cybersecurity · National College of Ireland · 2026</p><h2>Adaptive Gated Aggregation in Federated Learning for Network Security</h2></div>
+          <div class="btns"><a class="btn solid" href="https://github.com/AhilyaSanjaySarnaik/Adaptive-Gated-Aggregation-in-Federated-Learning-for-Network-Security" target="_blank" rel="noopener">View research</a><a class="btn" href="projects.html#fl">Case study</a></div></div>
+        <p>Organisations can train a shared network intrusion detector without handing over their traffic, but the shared model degrades when each participant sees very different data, a problem known as statistical heterogeneity or client drift. In this work each client trains an undercomplete autoencoder on its own normal traffic, and raw packets never leave the client. My aggregation method gates each update by its cosine similarity to the consensus direction, so poorly aligned updates are filtered out before the global model is built.</p>
+        <div class="flow"><span>🏢 clients</span><i>→</i><span>local autoencoder, normal traffic only</span><i>→</i><span>model updates</span><i>→</i><span>cosine-similarity gate</span><i>→</i><span>aggregate</span><i>→</i><span class="g">🌐 global NIDS</span></div>
+        <div class="facts">
+          <div class="fact"><h4>Compared against</h4><ul class="tags"><li>FedAvg</li><li>FedProx</li><li>FedAdam</li><li>PerFedHypID</li><li>Adaptive (mine)</li></ul></div>
+          <div class="fact"><h4>Data splits</h4><ul class="tags"><li>IID</li><li>Non-IID α=0.5</li><li>Non-IID α=0.1</li></ul></div>
+          <div class="fact"><h4>Datasets and statistics</h4><ul class="tags"><li>NSL-KDD</li><li>UNSW-NB15</li><li>Welch's t-test</li><li>Cohen's d</li></ul></div>
+        </div>
+        <div class="kpis">
+          <div class="kpi"><b>0.68 → 0.81</b><span>F1 vs FedAvg on highly skewed data</span></div>
+          <div class="kpi"><b>49% → 70%</b><span>detection rate on the same split</span></div>
+          <div class="kpi"><b>0.945</b><span>AUC-ROC on skewed data</span></div>
+          <div class="kpi"><b>~5%</b><span>false alarm rate across runs</span></div>
+        </div>
+        <ul class="tags"><li>Privacy-preserving ML</li><li>Federated learning</li><li>Network intrusion detection</li><li>Anomaly detection</li><li>Non-IID learning</li><li>Client drift</li><li>Autoencoders</li><li>PyTorch</li><li>Flower</li></ul>
+        <p class="limits" style="margin-top:1.2rem"><b>Known limits:</b> headline figures are phase 1 results on NSL-KDD; on balanced (IID) data the method performs about the same as FedAvg.</p>
+      </article>
+
+      <article class="case" id="violence">
+        <span class="badge pub">📄 Published research · peer-reviewed</span>
+        <div class="case-head"><div><p class="sub2">IJFMR · Volume 7, Issue 3 · May 2025</p><h2>Intelligent Violence Detection: An AI Driven Approach for Enhanced Surveillance System</h2></div>
+          <div class="btns"><a class="btn solid" href="https://www.ijfmr.com/research-paper.php?id=44243" target="_blank" rel="noopener">Read paper</a><a class="btn" href="https://www.ijfmr.com/papers/2025/3/44243.pdf" target="_blank" rel="noopener">PDF</a><a class="btn" href="https://doi.org/10.36948/ijfmr.2025.v07i03.44243" target="_blank" rel="noopener">DOI</a></div></div>
+        <p>An AI-powered surveillance system that spots violent behaviour and weapons in real time. It combines human detection, violence recognition and weapon detection, using deep learning models including Faster R-CNN, MobileNetV2, YOLO and MTCNN. When a threat is found, it sends a timestamped alert with location through Telegram, and stores events in Firebase Cloud Firestore for later review.</p>
+        <div class="flow"><span>📹 camera feed</span><i>→</i><span>human detection</span><i>→</i><span>violence recognition</span><i>→</i><span>weapon detection</span><i>→</i><span class="r">🚨 Telegram alert</span><i>+</i><span>Firestore log</span></div>
+        <div class="facts">
+          <div class="fact"><h4>Research areas</h4><ul class="tags"><li>Computer vision</li><li>Deep learning</li><li>Threat detection</li><li>Object detection</li></ul></div>
+          <div class="fact"><h4>Models</h4><ul class="tags"><li>Faster R-CNN</li><li>MobileNetV2</li><li>YOLO</li><li>MTCNN</li></ul></div>
+          <div class="fact"><h4>Delivery</h4><ul class="tags"><li>Telegram alerts</li><li>Firebase Firestore</li></ul></div>
+        </div>
+        <p class="cite"><b>Sarnaik, A. S.</b>, Sardesai, R. S., Padwal, S. P., Huddar, A. R. and Jadhav, K. (2025). Intelligent Violence Detection: An AI Driven Approach for Enhanced Surveillance System. <i>International Journal For Multidisciplinary Research (IJFMR)</i>, 7(3). <a href="https://doi.org/10.36948/ijfmr.2025.v07i03.44243" target="_blank" rel="noopener">doi.org/10.36948/ijfmr.2025.v07i03.44243</a></p>
+      </article>
+
+      <article class="case" id="pykspa">
+        <span class="badge mal">🦠 Malware analysis research</span>
+        <div class="case-head"><div><p class="sub2">MSc Cybersecurity, Malware Analysis · National College of Ireland · 2026</p><h2>Pykspa Trojan Behaviour Analysis</h2></div>
+          <!-- TODO: add the report link when it is public, e.g.
+          <div class="btns"><a class="btn solid" href="REPORT_URL" target="_blank" rel="noopener">Read analysis</a></div> -->
+        </div>
+        <p>An investigation of how the Pykspa malware family behaves, spreads and survives, with a focus on its domain generation algorithm (DGA) and the command-and-control infrastructure built on it. The work combines threat intelligence and vendor research with network forensics in Wireshark, and finds that the DGA, self-propagation, persistence and C2 design together explain why the botnet is so hard to take down.</p>
+        <div class="flow"><span>threat intel</span><i>→</i><span>vendor research</span><i>→</i><span>behaviour analysis</span><i>→</i><span>DGA + C2</span><i>→</i><span>🦈 Wireshark forensics</span><i>→</i><span class="g">defensive implications</span></div>
+        <ul class="cover" aria-label="Areas covered">
+          <li>Domain generation algorithms</li><li>Command and control</li><li>Botnet architecture</li><li>Propagation</li><li>Persistence</li><li>Registry interaction</li><li>Network traffic</li><li>Social engineering</li><li>Anti-analysis</li><li>Botnet resilience</li><li>Takedown challenges</li>
+        </ul>
+        <p class="limits"><b>Method note:</b> public Pykspa packet captures were scarce, so DGA-style traffic was studied using an Asprox PCAP as an analogue. The report treats this as an approximation, not a direct observation of Pykspa traffic.</p>
+        <p style="margin:0;color:var(--muted);font-size:.94rem">Related: <a href="https://medium.com/@ahilya_Cyber/how-i-built-my-first-malware-testing-lab-from-scratch-4898abff81e9" target="_blank" rel="noopener">How I built my first malware testing lab</a></p>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="block" style="padding-top:0">
+    <div class="wrap">
+      <div class="split">
+        <div class="vs"><h3>🔬 Research</h3><p>Work I designed and carried out: a question, a method, experiments or analysis, and results with their limits stated.</p><a href="#federated" style="font-weight:600">You're here</a></div>
+        <div class="vs"><h3>✍️ Articles</h3><p>Technical writing and explainers on AI agent security, LLM security, reconnaissance and GRC.</p><a href="articles.html" style="font-weight:600">Read the articles →</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <div>
+        <h2>Let's talk</h2>
+        <p>Available for full-time SOC, cloud and AI security roles in Ireland, and select freelance security consulting engagements.</p>
+        <div class="row">
+          <a class="btn solid" href="mailto:ahilyasarnaik12@gmail.com"><svg class="i"><use href="#i-mail"/></svg>Email me</a>
+          <a class="btn" href="https://www.linkedin.com/in/ahilyacyber" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn" href="resume.pdf" target="_blank" rel="noopener">Download CV</a>
+        </div>
+      </div>
+      <div class="mailbox" aria-label="Contact details">
+        <div><span class="k">$</span> contact --list</div>
+        <div>email&nbsp;&nbsp;&nbsp;&nbsp;<a href="mailto:ahilyasarnaik12@gmail.com">ahilyasarnaik12@gmail.com</a></div>
+        <div>linkedin&nbsp;<a href="https://www.linkedin.com/in/ahilyacyber" target="_blank" rel="noopener">in/ahilyacyber</a></div>
+        <div>github&nbsp;&nbsp;&nbsp;<a href="https://github.com/AhilyaSanjaySarnaik" target="_blank" rel="noopener">AhilyaSanjaySarnaik</a></div>
+        <div>x&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://x.com/Ahi_Cyber" target="_blank" rel="noopener">@Ahi_Cyber</a></div>
+        <div>location Dublin, Ireland</div>
+        <div><span class="k">●</span> status&nbsp;&nbsp;&nbsp;open to work</div>
+      </div>
+    </div>
+  </section>
+</main>
+<footer><div class="wrap"><span>© 2026 Ahilya Sarnaik, Dublin</span><nav aria-label="Footer"><a href="index.html">Home</a><a href="projects.html">Projects</a><a href="ai-lab.html">AI Lab</a><a href="research.html">Research</a><a href="articles.html">Articles</a><a href="about.html">About</a></nav></div></footer>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

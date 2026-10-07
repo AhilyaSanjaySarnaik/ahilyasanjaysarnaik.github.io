@@ -420,3 +420,6 @@ footer a{text-decoration:none} footer a:hover{color:var(--ink)}
 @media (prefers-reduced-motion:reduce){
   .cyber-avatar{transition:none}
 }
+
+/* Research link makes the nav longer: drop the secondary header button on mid-width screens */
+@media (min-width:981px) and (max-width:1220px){.hdr-cta .btn.ghost{display:none}nav.primary a{padding:.4rem .55rem}}
