@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0A0E16">
+<title>AI Agent Security · Ahilya Sarnaik</title>
+<meta name="description" content="AI agent security projects: MCP runtime authorization, prompt-injection firewall, clinical AI access gateway and LLM guardrails.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="AI Agent Security · Ahilya Sarnaik">
+<meta property="og:description" content="AI agent security projects: MCP runtime authorization, prompt-injection firewall, clinical AI access gateway and LLM guardrails.">
+<meta property="og:url" content="https://ahilyasanjaysarnaik.github.io/ai-lab.html">
+<link rel="canonical" href="https://ahilyasanjaysarnaik.github.io/ai-lab.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230F1522'/%3E%3Ctext x='16' y='21' font-family='monospace' font-size='14' fill='%236EE7C8' text-anchor='middle'%3EAS%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header"><div class="container nav-wrap">
+<a class="brand" href="index.html"><span class="brand-mark">AS</span>Ahilya Sarnaik</a>
+<button class="menu" type="button" aria-controls="primary-nav" aria-expanded="false">Menu</button>
+<nav id="primary-nav" aria-label="Primary"><a href="index.html">Home</a><a href="projects.html">Projects</a><a href="ai-lab.html" aria-current="page">AI Security</a><a href="research.html">Research</a><a href="articles.html">Writing</a><a href="about.html">About</a><a class="nav-cv" href="resume.pdf" target="_blank" rel="noopener">Download CV</a></nav>
+</div></header>
+<main id="main">
+
+<section class="page-hero"><div class="container">
+<p class="eyebrow">AI agent security</p><h1>Securing what AI agents are allowed to do.</h1>
+<p class="lead">An agent with tools has the permissions of every tool it can call. I build the controls that sit outside the model: identity, authorization, input screening, data scrubbing and audit. Then I red-team them.</p>
+</div></section>
+<section class="section tight"><div class="container">
+<div class="section-heading"><div><p class="kicker">Coverage</p><h2>Which threat each project defends against</h2><p class="muted">Threat categories follow the OWASP Top 10 for LLM Applications and MITRE ATLAS.</p></div></div>
+<div class="table-wrap reveal"><table class="matrix"><thead><tr><th>Threat</th><th>SupervisorGuard</th><th>Agentic firewall</th><th>MedGuard</th><th>Recon guardrail</th></tr></thead><tbody><tr><td>Direct prompt injection</td><td><span class="chk">✓</span></td><td><span class="chk">✓</span></td><td><span class="dash">—</span></td><td><span class="chk">✓</span></td></tr><tr><td>Indirect injection / poisoned tools</td><td><span class="dash">—</span></td><td><span class="chk">✓</span></td><td><span class="dash">—</span></td><td><span class="chk">✓</span></td></tr><tr><td>Role spoofing & unauthenticated escalation</td><td><span class="chk">✓</span></td><td><span class="dash">—</span></td><td><span class="chk">✓</span></td><td><span class="dash">—</span></td></tr><tr><td>Excessive agency / destructive actions</td><td><span class="chk">✓</span></td><td><span class="dash">—</span></td><td><span class="chk">✓</span></td><td><span class="dash">—</span></td></tr><tr><td>Sensitive data leakage (secrets, PII, PHI)</td><td><span class="dash">—</span></td><td><span class="chk">✓</span></td><td><span class="chk">✓</span></td><td><span class="chk">✓</span></td></tr><tr><td>Unaudited decisions</td><td><span class="chk">✓</span></td><td><span class="chk">✓</span></td><td><span class="chk">✓</span></td><td><span class="dash">—</span></td></tr></tbody></table></div>
+</div></section>
+<section class="section"><div class="container"><div class="grid"><article class="card reveal"><div class="fc-meta">AI security · Authorization</div><h3>SupervisorGuard AI: runtime enforcement for MCP agents</h3><p>AI agents connected to real tools can be talked into doing things their user never approved. Model output can&#x27;t be the security boundary, so the boundary has to sit between the agent and the tool.</p><a class="text-link" href="projects.html#supervisorguard">Case study →</a></article><article class="card reveal"><div class="fc-meta">AI security · Prompt injection</div><h3>Agentic firewall &amp; MCP tool sanitizer</h3><p>AI coding agents read untrusted text all day. Single-layer filters are either too strict or easy to bypass, and a poisoned MCP tool can leak secrets without any obviously bad prompt.</p><a class="text-link" href="projects.html#agentic-firewall">Case study →</a></article><article class="card reveal"><div class="fc-meta">IAM · Healthcare AI</div><h3>MedGuard: access governance gateway for clinical AI</h3><p>An AI assistant in a hospital should only ever see the records of patients its user is assigned to, and patient data must never leak in its answers.</p><a class="text-link" href="projects.html#medguard">Case study →</a></article><article class="card reveal"><div class="fc-meta">Recon · AI guardrails</div><h3>AI attack-surface intelligence platform</h3><p>Recon produces long lists of assets that someone has to triage. A local LLM can help, but the LLM itself becomes an injection target.</p><a class="text-link" href="projects.html#attack-surface">Case study →</a></article></div></div></section>
+<section class="section alt"><div class="container">
+<div class="section-heading"><div><p class="kicker">Principles</p><h2>How I approach it</h2></div></div>
+<div class="grid three">
+<article class="card reveal"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="15" r="4"/><path d="M11 12l9-9M17 6l3 3M15 8l2 2"/></svg></div><h3>Enforce outside the model</h3><p>Permissions are checked by code the model can't talk its way past: identity, ABAC and policy-as-code.</p></article>
+<article class="card reveal"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg></div><h3>Everything untrusted is input</h3><p>Retrieved text, tool descriptions and tool results are screened like user input, because attackers put payloads there.</p></article>
+<article class="card reveal"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg></div><h3>Evidence over claims</h3><p>Repeatable attack test cases, published recall and false-positive rates, and stated limitations.</p></article>
+</div></div></section>
+<section class="section"><div class="container"><div class="callout reveal">
+<div><p class="kicker">Open to roles in Ireland</p><h2>Looking for a security engineer who builds the control and then tests it?</h2>
+<p class="muted">Graduate and early-career roles in SOC, detection engineering, cloud security, IAM and AI security. Stamp 1G: no sponsorship needed.</p></div>
+<div class="actions"><a class="btn primary" href="mailto:ahilyasarnaik12@gmail.com">Email me</a><a class="btn secondary" href="https://www.linkedin.com/in/ahilyacyber/" target="_blank" rel="noopener">LinkedIn</a></div>
+</div></div></section>
+</main>
+<footer class="footer"><div class="container">
+<span>© 2026 Ahilya Sarnaik · Dublin, Ireland</span>
+<nav aria-label="Elsewhere"><a href="mailto:ahilyasarnaik12@gmail.com">ahilyasarnaik12@gmail.com</a><a href="https://github.com/AhilyaSanjaySarnaik" target="_blank" rel="noopener">GitHub</a><a href="https://www.linkedin.com/in/ahilyacyber/" target="_blank" rel="noopener">LinkedIn</a><a href="https://medium.com/@ahilya_Cyber" target="_blank" rel="noopener">Medium</a></nav>
+</div></footer>
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>
