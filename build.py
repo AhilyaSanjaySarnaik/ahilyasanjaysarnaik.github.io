@@ -619,5 +619,4 @@ if __name__ == "__main__":
     for name, fn in [("index.html", index), ("projects.html", projects), ("ai-lab.html", ai_lab),
                      ("research.html", research), ("articles.html", articles), ("about.html", about)]:
         with open(os.path.join(OUT, name), "w") as f: f.write(fn())
-    with open(os.path.join(OUT, "README.md"), "w") as f: f.write(README)
     print("built")
